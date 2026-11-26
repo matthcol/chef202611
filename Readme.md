@@ -68,3 +68,23 @@ docker ps # check target container is destroyed
 
 Liste des `resources` de Chef:
 https://docs.chef.io/client/19/resources/bundled/
+
+
+Plateformes: ajout de 4 plateformes dans kitchden.yml
+```sh
+kitchen list
+kitchen converge   # add new platforms
+
+# recreate platform
+kitchen destroy default-ubuntu-2604
+kitchen converger default-ubuntu-2604
+kitchen list
+
+# checkup
+docker ps
+docker exec -it 5f8fba4942-default-ubuntu-2604 bash -c "ls -l /opt/hello.txt && cat /opt/hello.txt"
+docker exec -it 5f8fba4942-default-debian-13 bash -c "ls -l /opt/hello.txt && cat /opt/hello.txt"
+docker exec -it 5f8fba4942-default-rockylinux-10 bash -c "ls -l /opt/hello.txt && cat /opt/hello.txt"
+```
+
+
