@@ -51,7 +51,12 @@ suites:
   - name: default
     run_list:
       - recipe[hello::default]
-      # NB: peut etre conditionnel en fonction de la plateforme (includes, excludes)
+      # NB: autre recette ici ou include dans la recette default
     verifier:
       inspec_tests:
         - test/integration/default
+     # NB: peut etre conditionnel en fonction de la plateforme (includes, excludes)
+    excludes:
+      - ubuntu-24.04
+      - ubuntu-26.04
+
