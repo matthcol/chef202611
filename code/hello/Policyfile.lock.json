@@ -1,0 +1,42 @@
+{
+  "revision_id": "52aa1501e11862f23becc1b7484f8b3c570cf6c6a4bc8e227b4780466f204dd9",
+  "name": "hello",
+  "run_list": [
+    "recipe[hello::default]"
+  ],
+  "included_policy_locks": [
+
+  ],
+  "cookbook_locks": {
+    "hello": {
+      "version": "0.1.0",
+      "identifier": "a63875f49d76f733a6326909be35914957a90893",
+      "dotted_decimal_identifier": "46786925400258295.14537959253065269.159744189335699",
+      "source": ".",
+      "cache_key": null,
+      "scm_info": null,
+      "source_options": {
+        "path": "."
+      }
+    }
+  },
+  "default_attributes": {
+
+  },
+  "override_attributes": {
+
+  },
+  "solution_dependencies": {
+    "Policyfile": [
+      [
+        "hello",
+        ">= 0.0.0"
+      ]
+    ],
+    "dependencies": {
+      "hello (0.1.0)": [
+
+      ]
+    }
+  }
+}

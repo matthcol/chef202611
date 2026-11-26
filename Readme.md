@@ -3,6 +3,13 @@
 ## Chef Workstation
 ### Installation OS
 - chef.io/chef => Get Started
+
+Dispo sur MacOs:
+```sh
+brew install --cask chef-workstation
+brew install --cask chef-workstation --version 25.14.2
+```
+
 ### Installation Docker
 #### Build Image
 Dockerfile: docker-chef-workstation
