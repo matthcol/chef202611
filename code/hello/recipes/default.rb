@@ -6,5 +6,6 @@
 
 include_recipe 'hello::apphello'
 include_recipe 'hello::nginx'
+include_recipe 'hello::files'
 
 

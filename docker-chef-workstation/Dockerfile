@@ -6,7 +6,7 @@ FROM ubuntu:22.04
 ARG CHEF_WORKSTATION_VERSION=25.14.2
 
 RUN apt-get update -qq \
-    && apt-get install -y -qq --no-install-recommends curl ca-certificates docker.io rsync openssh-client locales \
+    && apt-get install -y -qq --no-install-recommends curl ca-certificates docker.io rsync openssh-client locales tree \
     && rm -rf /var/lib/apt/lists/* \
     && locale-gen en_US.UTF-8
 
