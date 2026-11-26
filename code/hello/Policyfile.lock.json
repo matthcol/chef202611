@@ -1,5 +1,5 @@
 {
-  "revision_id": "9086526db29a293bf085427d041f96b550a3dc65fc583a517c4fb5df314af545",
+  "revision_id": "5025e506e8efedc41a11161c39e654fa079ae70c17c7db94f7f51b9217c95329",
   "name": "hello",
   "run_list": [
     "recipe[hello::default]"
@@ -10,8 +10,8 @@
   "cookbook_locks": {
     "hello": {
       "version": "0.1.0",
-      "identifier": "03d726674054536d7035c9b3189013d7f7b231f8",
-      "dotted_decimal_identifier": "1080984871130195.30804148780996752.21818294546936",
+      "identifier": "4b85c45dbe5ed1347d0d329568a4e797dd305dc8",
+      "dotted_decimal_identifier": "21257701686140625.14774194425653412.254639437012424",
       "source": ".",
       "cache_key": null,
       "scm_info": null,
