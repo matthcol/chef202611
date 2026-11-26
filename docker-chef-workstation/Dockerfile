@@ -1,6 +1,6 @@
 # Build :   docker build -t chef-tooling:local .
 # Usage :   docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock \
-#             -v "$(pwd):/workdir" -w /workdir chef-tooling:local bash
+#             -v "$(pwd)/code:/workdir" -w /workdir chef-tooling:local bash
 FROM ubuntu:22.04
 
 ARG CHEF_WORKSTATION_VERSION=25.14.2
