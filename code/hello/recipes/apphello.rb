@@ -1,5 +1,8 @@
+# variable interne à la recette, non substituable depuis Chef
+custom_line = 'tarte aux fraises'
+
 # utilisation de la resource user
-user 'hello' do
+user "#{node['hello']['user_name']}" do
   comment 'Hello user'
   shell '/usr/bin/bash'
   manage_home true
@@ -9,9 +12,9 @@ end
 
 # utilisation de la resource file
 file '/opt/hello.txt' do
-  content "hello from Chef\nlet's taste this\n"
-  owner 'hello'
-  group 'hello'
+  content "hello from Chef\nlet's taste this\n#{custom_line}\n"
+  owner "#{node['hello']['user_name']}"
+  group "#{node['hello']['user_name']}"
   mode '0600'
   action :create
 end

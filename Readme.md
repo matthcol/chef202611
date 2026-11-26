@@ -82,9 +82,9 @@ kitchen list
 
 # checkup
 docker ps
-docker exec -it 5f8fba4942-default-ubuntu-2604 bash -c "ls -l /opt/hello.txt && cat /opt/hello.txt"
-docker exec -it 5f8fba4942-default-debian-13 bash -c "ls -l /opt/hello.txt && cat /opt/hello.txt"
-docker exec -it 5f8fba4942-default-rockylinux-10 bash -c "ls -l /opt/hello.txt && cat /opt/hello.txt"
+docker exec -it 5f8fba4942-default-ubuntu-2604 bash -c "tail -1 /etc/passwd && ls -l /opt/hello.txt && cat /opt/hello.txt"
+docker exec -it 5f8fba4942-default-debian-13 bash -c "tail -1 /etc/passwd && ls -l /opt/hello.txt && cat /opt/hello.txt"
+docker exec -it 5f8fba4942-default-rockylinux-10 bash -c "tail -1 /etc/passwd && ls -l /opt/hello.txt && cat /opt/hello.txt"
 ```
 
 Ajout du package nginx dans la recette
