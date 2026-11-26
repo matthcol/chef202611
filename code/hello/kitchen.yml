@@ -59,4 +59,8 @@ suites:
     excludes:
       - ubuntu-24.04
       - ubuntu-26.04
+    # override attributes here or better => kitchen.local.yml (non versionné)
+    # attributes:
+    #   hello:
+    #     user_name: 'hola'
 

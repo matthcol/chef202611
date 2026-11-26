@@ -1,0 +1,7 @@
+# fichier d'override local: pour un dev, pour une plateforme CI (gitlab-ci, jenkins)
+# NB: non versionné dans git (fait ici pour raison pédagogique)
+suites:
+  - name: default
+    attributes:
+      hello:
+        user_name: 'morgen'
