@@ -28,4 +28,7 @@ hostname 'hello101' do
   action :set
 end
 
+package 'nginx' do
+  action :install
+end
 

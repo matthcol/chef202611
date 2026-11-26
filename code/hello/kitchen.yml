@@ -51,6 +51,7 @@ suites:
   - name: default
     run_list:
       - recipe[hello::default]
+      # NB: peut etre conditionnel en fonction de la plateforme (includes, excludes)
     verifier:
       inspec_tests:
         - test/integration/default
