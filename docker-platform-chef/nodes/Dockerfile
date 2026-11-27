@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends openssh-server sudo curl ca-certificates locales \
+    && apt-get install -y --no-install-recommends openssh-server sudo curl ca-certificates locales iproute2 \
     && locale-gen en_US.UTF-8 \
     && mkdir -p /var/run/sshd \
     && rm -rf /var/lib/apt/lists/*

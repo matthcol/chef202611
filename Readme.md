@@ -230,7 +230,7 @@ NB:
     (ici clé SSH à faire)
 - chef-cli de Progres Chef nécessite une licence et un compte (gratuit pour les dev)
 
-- patch cinc vs Progres Chef
+- patch manuel cinc vs Progres Chef sur chaque noeud (1 ligne dans la conf rubis du client):
 ```sh
 docker exec node1 bash -c '
   echo "client_key \"/etc/chef/client.pem\"" >> /etc/chef/client.rb
@@ -241,7 +241,41 @@ docker exec node1 bash -c '
   echo "client_key \"/etc/chef/client.pem\"" >> /etc/chef/client.rb
   chef-client -c /etc/chef/client.rb
 '
-
+```
 
 ## Node `chef-cli`
-TODO
+Technique du pull depuis chaque
+
+Manuel:
+```sh
+chef-client -c /etc/chef/client.rb
+```
+
+Automatique
+- crontab : programmer les lancements de chef-client
+- en mode demon : `chef-client -c /etc/chef/client.rb -d`  (default: 30 mn)
+
+
+## Publication depuis une workstation
+Publication sur le chef-server du cookbook hello:0.1.0 et ses dépendances dans un `group_policy`.
+
+Ici `group_policy = staging` :
+
+```sh
+docker exec -it chef-workstation bash
+chef install
+chef push staging -c ../knife.rb 
+
+# checkup policy_group
+knife list /policy_groups/staging/policies -c ../knife.rb
+
+# placer les noeuds dans la policy_group staging
+knife node policy set node1 staging hello -c ../knife.rb
+knife node show node1 -c ../knife.rb 
+```
+
+## Pull des cookbooks
+```sh
+docker exec -it node1 bash
+chef-client -c /etc/chef/client.rb
+```

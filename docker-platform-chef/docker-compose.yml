@@ -21,6 +21,8 @@ services:
     build: ./nodes
     container_name: node1
     hostname: node1
+    cap_add:
+      - SYS_ADMIN   # requis pour que la resource Chef "hostname" puisse appeler sethostname()
     networks:
       - chef-net
     depends_on:
@@ -30,6 +32,8 @@ services:
     build: ./nodes
     container_name: node2
     hostname: node2
+    cap_add:
+      - SYS_ADMIN
     networks:
       - chef-net
     depends_on:
