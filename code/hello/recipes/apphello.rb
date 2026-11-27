@@ -23,3 +23,19 @@ end
 hostname 'hello101' do
   action :set
 end
+
+
+# autres users : ici ou en attributes
+# other_users = ['dba', 'app', 'looker']
+other_users = %w(dba app looker)  # raccourci rubis pour les tableaux de string
+
+other_users.each do |other_user|
+  # resource répétée
+  user "creation user #{other_user}" do
+    username other_user
+    shell '/usr/bin/bash'
+    manage_home true
+    action :create
+  end
+end
+

@@ -116,5 +116,17 @@ kitchen verify default-ubuntu-2204   # test auto
 # manual checkup
 kitchen login default-ubuntu-2204  # session interactive
 kitchen exec default-ubuntu-2204  -c "ls -alh /opt" # 1 commande à distance
+```
+
+## Tests
+### Tests de validation
+Chef ChefSpec vérifie avant convergence (clause conditionnelle)
+### Tests d'intégration
+Chef InSpec vérifie la convergence.
+
+Chaque resource a ses propres validations.
+
+Doc: 
+https://docs.chef.io/inspec/7.3/resources/
 
 
