@@ -1,0 +1,6 @@
+name: default # config suite default
+inputs:
+  - name: user_name
+    type: string
+    description: Name of owner user/group
+    value: 'bonjour'

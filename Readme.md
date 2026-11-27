@@ -102,4 +102,19 @@ docker exec -it 5f8fba4942-default-ubuntu-2604 bash -c "systemctl status nginx"
 docker exec -it 5f8fba4942-default-debian-13 bash -c "systemctl status nginx"
 ```
 
+## Kitchen : recap/complément
+```sh
+kitchen converge  # create target node and apply recipes (n times)
+kitchen destroy   # clean kitchen => destroy target node
+kitchen verify    # test auto 
+
+# idem, only on this target
+kitchen converge default-ubuntu-2204 
+kitchen destroy default-ubuntu-2204  # clean kitchen => destroy target node
+kitchen verify default-ubuntu-2204   # test auto 
+
+# manual checkup
+kitchen login default-ubuntu-2204  # session interactive
+kitchen exec default-ubuntu-2204  -c "ls -alh /opt" # 1 commande à distance
+
 

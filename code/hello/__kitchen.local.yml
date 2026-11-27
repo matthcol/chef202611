@@ -5,3 +5,6 @@ suites:
     attributes:
       hello:
         user_name: 'morgen'
+    verifier:
+      inputs:
+        user_name: 'morgen'
