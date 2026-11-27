@@ -202,4 +202,28 @@ knife client list  # => formation-validator
 knife node list   # => liste vide pour l'instant
 ```
 
+Enrôlement des noeuds cibles
+```sh
+knife bootstrap node1 \
+        --connection-user deploy --connection-password chefpass \
+        --node-name node1 --sudo \
+        --bootstrap-product cinc \
+        --bootstrap-url https://omnitruck.cinc.sh/install.sh \
+        --ssh-verify-host-key never \
+        --node-ssl-verify-mode none 
+
+knife bootstrap node2 \
+        --connection-user deploy --connection-password chefpass \
+        --node-name node2 --sudo \
+        --bootstrap-product cinc \
+        --bootstrap-url https://omnitruck.cinc.sh/install.sh \
+        --ssh-verify-host-key never \
+        --node-ssl-verify-mode none 
+```
+
+NB:
+- gestion du user côté node : root ou user sudoers avec ou sans validation de mot passe + clé SSH
+    (ici clé SSH à faire)
+- chef-cli de Progres Chef nécessite une licence et un compte (gratuit pour les dev)
+
 
