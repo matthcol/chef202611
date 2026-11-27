@@ -230,5 +230,18 @@ NB:
     (ici clé SSH à faire)
 - chef-cli de Progres Chef nécessite une licence et un compte (gratuit pour les dev)
 
-## Node bootstrap et `chef-cli`
+- patch cinc vs Progres Chef
+```sh
+docker exec node1 bash -c '
+  echo "client_key \"/etc/chef/client.pem\"" >> /etc/chef/client.rb
+  chef-client -c /etc/chef/client.rb
+'
+
+docker exec node1 bash -c '
+  echo "client_key \"/etc/chef/client.pem\"" >> /etc/chef/client.rb
+  chef-client -c /etc/chef/client.rb
+'
+
+
+## Node `chef-cli`
 TODO
