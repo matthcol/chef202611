@@ -237,7 +237,7 @@ docker exec node1 bash -c '
   chef-client -c /etc/chef/client.rb
 '
 
-docker exec node1 bash -c '
+docker exec node2 bash -c '
   echo "client_key \"/etc/chef/client.pem\"" >> /etc/chef/client.rb
   chef-client -c /etc/chef/client.rb
 '

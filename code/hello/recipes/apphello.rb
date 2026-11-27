@@ -27,7 +27,7 @@ end
 
 # autres users : ici ou en attributes
 # other_users = ['dba', 'app', 'looker']
-other_users = %w(dba app looker)  # raccourci rubis pour les tableaux de string
+other_users = %w(dba app looker dollaru)  # raccourci rubis pour les tableaux de string
 
 other_users.each do |other_user|
   # resource répétée
