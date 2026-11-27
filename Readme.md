@@ -187,3 +187,9 @@ chef-server-ctl org-create formation "Formation Chef" --association_user admin -
 chef-server-ctl org-list
 ```
 
+Sur l'hôte rappatrier la clé de l'admin
+```sh
+mkdir keys
+docker cp chef-server:/etc/opscode/admin.pem keys/admin.pem
+```
+
