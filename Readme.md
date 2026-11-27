@@ -187,9 +187,19 @@ chef-server-ctl org-create formation "Formation Chef" --association_user admin -
 chef-server-ctl org-list
 ```
 
-Sur l'hôte rappatrier la clé de l'admin
+
+### Enrôlement des noeuds : workstation
+Sur l'hôte/workstation rappatrier la clé de l'admin
 ```sh
 mkdir keys
 docker cp chef-server:/etc/opscode/admin.pem keys/admin.pem
 ```
+
+Outil de pilotage CLI : `knife`
+```sh
+docker exec -it chef-workstation bash
+knife client list  # => formation-validator
+knife node list   # => liste vide pour l'instant
+```
+
 
