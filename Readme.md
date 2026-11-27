@@ -155,3 +155,35 @@ TODO: essayer les cookbooks de sous-chef
 - mariadb
 - postgresql
 
+## Plateforme de déploiement : staging
+### Install Plateforme
+```sh
+cd docker-platform-chef
+docker compose up -d
+```
+
+Shells sur les différents noeuds:
+```sh
+docker exec -it chef-workstation bash
+docker exec -it chef-server bash 
+docker exec -it node1 bash
+docker exec -it node2 bash
+```
+
+### Initialisation du chef-server
+Sur le chef server
+```sh
+docker exec -it chef-server bash 
+chef-server-ctl status  # aucun composant
+chef-server-ctl reconfigure # auto-configure (avec Chef) + start
+chef-server-ctl status  # all component started
+
+# user Chef
+chef-server-ctl user-create admin Admin User admin@example.org 'superpassword!' --filename /etc/opscode/admin.pem
+chef-server-ctl user-list
+
+# organisation
+chef-server-ctl org-create formation "Formation Chef" --association_user admin --filename /etc/opscode/formation-validator.pem
+chef-server-ctl org-list
+```
+
