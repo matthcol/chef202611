@@ -219,6 +219,10 @@ knife bootstrap node2 \
         --bootstrap-url https://omnitruck.cinc.sh/install.sh \
         --ssh-verify-host-key never \
         --node-ssl-verify-mode none 
+
+# checkup enrolment
+knife client list 
+knife node list 
 ```
 
 NB:
@@ -226,4 +230,5 @@ NB:
     (ici clé SSH à faire)
 - chef-cli de Progres Chef nécessite une licence et un compte (gratuit pour les dev)
 
-
+## Node bootstrap et `chef-cli`
+TODO
