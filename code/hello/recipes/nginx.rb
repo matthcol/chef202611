@@ -19,3 +19,10 @@ end
 service 'nginx' do
   action [:start, :enable]
 end
+
+# resource du cookbook tiers `line`
+replace_or_add 'fix nb workers' do
+  path '/etc/nginx/nginx.conf'
+  pattern '^worker_processes.*'
+  line 'worker_processes 8'  # TODO: use attribute
+end

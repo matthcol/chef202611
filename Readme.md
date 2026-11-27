@@ -130,3 +130,28 @@ Doc:
 https://docs.chef.io/inspec/7.3/resources/
 
 
+
+## Resources tierces: Supermarket
+Supermarket :  https://supermarket.chef.io/
+
+Sous ensemble : sous-chef : https://supermarket.chef.io/users/sous-chefs
+NB: equivalent galaxy communauty d'ansible
+
+- ajoute la dépendance dans 
+```
+# file metadata.rb
+depends 'line', '~> 5.0.1'
+```
+
+- install la dépendance / projet
+```sh
+chef install  -- 1ère fois
+chef update   -- à chaque maj => Policyfile.lock.json
+```
+
+TODO: essayer les cookbooks de sous-chef
+- nginx
+- apache2
+- mariadb
+- postgresql
+

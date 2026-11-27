@@ -1,0 +1,59 @@
+services:
+  chef-server:
+    build: ./chef-server
+    container_name: chef-server
+    hostname: chef-server
+    privileged: true          # requis : systemd (PID 1) a besoin d'un accès aux cgroups
+    tmpfs:
+      - /run
+      - /run/lock
+    ports:
+      - "8443:443"
+      - "8080:80"
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+      - chef-server-etc:/etc/opscode
+      - chef-server-data:/var/opt/opscode
+    networks:
+      - chef-net
+
+  node1:
+    build: ./nodes
+    container_name: node1
+    hostname: node1
+    networks:
+      - chef-net
+    depends_on:
+      - chef-server
+
+  node2:
+    build: ./nodes
+    container_name: node2
+    hostname: node2
+    networks:
+      - chef-net
+    depends_on:
+      - chef-server
+
+  # Chef Workstation 
+  workstation:
+    image: chef-tooling:local
+    container_name: chef-workstation
+    hostname: workstation
+    networks:
+      - chef-net
+    volumes:
+      - ../code:/workdir
+    working_dir: /workdir
+    environment:
+      - CHEF_LICENSE=accept-no-persist
+    entrypoint: ["sleep", "infinity"]
+    depends_on:
+      - chef-server
+
+networks:
+  chef-net:
+
+volumes:
+  chef-server-etc:
+  chef-server-data:

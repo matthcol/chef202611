@@ -17,3 +17,8 @@ chef_version '>= 16.0'
 # a Supermarket.
 #
 # source_url 'https://github.com/<insert_org_here>/hello'
+
+# cookbook avec resources tierces
+depends 'line', '~> 5.0.1'
+depends 'nginx', '~> 12.3.4'
+
